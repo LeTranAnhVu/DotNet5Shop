@@ -1,0 +1,87 @@
+$border-color: #ced4da;
+$primary-color: #151515;
+$primary-color-dark: #151515;
+$primary-color-light: #575757;
+$secondary-color: #6A983C;
+$secondary-color-dark: #46760A;
+$secondary-color-light: #92C064;
+
+// Override Bootstrap
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  &::after {
+    display: inline-block;
+    color: $secondary-color;
+    content: "\f078";
+    font-family: 'Font Awesome\ 5 Free', serif;
+    font-weight: 900;
+    margin-left: 0.75em;
+    vertical-align: 0.255em;
+    font-size: 0.6em;
+    border: none;
+  }
+}
+
+// Core
+.highlight-text {
+  color: $secondary-color;
+}
+.three-cols-layout {
+  display: flex;
+  width: 100%;
+  .col {
+    display: flex;
+    align-items: center;
+  }
+  .col:first-child {
+    justify-content: flex-start;
+  }
+
+  .col:nth-child(2) {
+    justify-content: center;
+    flex-grow: 2;
+  }
+
+  .col:last-child {
+    justify-content: flex-end;
+  }
+}
+
+
+
+
+
+// Header
+header {
+  .category-navbar {
+  }
+
+  .main-navbar {
+    height: 130px;
+    .search-form {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      .input-group {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid $border-color;
+        overflow: hidden;
+        button {
+          border: none;
+          border-right: 1px solid $border-color;
+        }
+        .search-input {
+          border: none;
+        }
+      }
+
+    }
+    .user-links {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+}
