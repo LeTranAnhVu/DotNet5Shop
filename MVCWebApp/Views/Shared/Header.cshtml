@@ -7,27 +7,26 @@
 
 <header>
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
-            @* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"> *@
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom contact-navbar">
+            @* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"> *@
             @*     <span class="navbar-toggler-icon"></span> *@
             @* </button> *@
-
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav mr-auto mt-3 mt-lg-0">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">
                             <span class="highlight-text">Chat with us</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">(+358) xxx xxx xxxx</a>
+                        <a class="nav-link" href="#">(+357) xxx xxx xxxx</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">vule5726@gmail.com</a>
+                        <a class="nav-link" href="#">vule5725@gmail.com</a>
                     </li>
                 </ul>
 
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">
                             <span class="highlight-text">Blog</span>
@@ -46,14 +45,15 @@
                 </ul>
             </div>
         </nav>
+    </div>
+    <div class="container-fluid">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white main-navbar">
-
             <div class="three-cols-layout">
                 <div class="col">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Brian's Shop</a>
+                    <a class="navbar-brand px-2" asp-area="" asp-controller="Home" asp-action="Index">Brian's Shop</a>
                 </div>
                 <div class="col">
-                    <form class="form-inline my-2 my-lg-0 search-form">
+                    <form class="form-inline my-3 my-lg-0 search-form">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Categories</button>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="col">
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1 user-links">
+                        <ul class="navbar-nav flex-grow-2 user-links">
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
                                     <i class="far fa-user"></i>
@@ -92,7 +92,10 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </nav>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light category-navbar">
+    </div>
+
+    <div class="container-fluid bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light category-navbar">
             <div class="collapse navbar-collapse" id="category-collapse">
                 <ul class="navbar-nav mr-auto row">
                     @foreach (var category in categories)
@@ -112,6 +115,10 @@
                 </ul>
             </div>
         </nav>
+    </div>
+    @* Breadcrumb *@
+    <div class="container-fluid">
+        <Partial name="Components/Breadcrumb"/>
     </div>
 
 </header>

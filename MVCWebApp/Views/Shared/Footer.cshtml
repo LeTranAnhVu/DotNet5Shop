@@ -1,6 +1,11 @@
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2021 - Brian  - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+<footer>
+    <div class="container-fluid px-5">
+        <div class="mb-5">
+            <Partial name="Components/SiteMap"/>
+        </div>
+        <div class="mb-5">
+            <Partial name="Components/ProductTags"/>
+        </div>
+        <p>Copyright © 2021 - Brian - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
     </div>
 </footer>
-

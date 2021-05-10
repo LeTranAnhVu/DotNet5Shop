@@ -1,0 +1,17 @@
+@{
+    var breadcrumbs = new List<string>
+    {
+        "Homepage", "Fruit and Vegatables", "Carrot from Brian's Farm"
+    };
+}
+
+<div class="breadcrumb-wrapper px-2">
+    <ul class="breadcrumb">
+        @foreach (var item in breadcrumbs)
+        {
+            <li class="breadcrumb-item">
+                <a href="#">@item</a>
+            </li>
+        }
+    </ul>
+</div>
