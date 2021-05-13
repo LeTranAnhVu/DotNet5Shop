@@ -1,9 +1,56 @@
 ﻿@model MVCWebApp.Controllers.Item
 @{
     ViewData["Title"] = "Home Page";
+    Layout = "_Layout_3-9-12";
 }
 
-<div class="text-center">
-    <h1 class="display-4">@Model.Name</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@section LeftSideMenu
+{
+    <div class="px-4">
+        <div class="mb-5">
+            <Partial name="Components/CategoryMenu"/>
+        </div>
+        <div class="mb-5">
+            <Partial name="Components/CategoryMenu"/>
+        </div>
+        <div class="mb-5">
+            <Partial name="Components/CategoryMenu"/>
+        </div>
+    </div>
+
+
+}
+
+@* Main *@
+<div>
+    <HomeBanner/>
+    <Partial name="Components/HomeBanner"/>
+    <div class="product-list">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <Partial name="Components/ProductCard"/>
+            </div>
+            <div class="col-md-4 mb-4">
+                <Partial name="Components/ProductCard"/>
+            </div>
+            <div class="col-md-4 mb-4">
+                <Partial name="Components/ProductCard"/>
+            </div>
+            <div class="col-md-4 mb-4">
+                <Partial name="Components/ProductCard"/>
+            </div>
+            <div class="col-md-4 mb-4">
+                <Partial name="Components/ProductCard"/>
+            </div>
+
+
+        </div>
+    </div>
 </div>
+
+@section FullWidthPart
+{
+    <div class="row">
+        slides
+    </div>
+}

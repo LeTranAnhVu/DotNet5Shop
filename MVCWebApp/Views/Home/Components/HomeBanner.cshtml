@@ -1,0 +1,35 @@
+@{
+    var img = "~/images/vegetable-bg.png";
+    var banners = new List<dynamic>
+    {
+        new
+        {
+            Title = "Space for heading",
+            SubTitle = "Banner sub forcus",
+            ImageUrl = img
+        },
+        new
+        {
+            Title = "Space for heading",
+            SubTitle = "Banner sub forcus",
+            ImageUrl = img
+        }
+    };
+}
+
+<div class="banner-row row">
+    @foreach (var banner in @banners)
+    {
+        <div class="col-md-6 mb-4">
+            <div class="banner">
+                <img class="img-bg" src="@Url.Content(banner.ImageUrl)" alt="@banner.Title 's image">
+                <div class="banner-content">
+                    <h6 class="sub-title">@banner.SubTitle</h6>
+                    <h4 class="title">@banner.Title</h4>
+                    <div class="reserved"></div>
+                    <button class="btn btn-secondary">Read recipies</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>

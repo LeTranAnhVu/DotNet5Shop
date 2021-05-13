@@ -1,0 +1,19 @@
+@{
+    var menu = new List<string>
+    {
+        "Bakery", "Fruit and Vegetables", "Meat and Fish", "Drinks", "Kitchen", "Somthing else"
+    };
+
+}
+<div class="category-menu">
+    <h5 class="title mb-2">Category Menu</h5>
+    <ul class="menu-links mb-4">
+        @foreach (var item in menu.Take(5))
+        {
+            <li class="mb-2">
+                <a href="#">@item</a>
+            </li>
+        }
+    </ul>
+    <button class="btn btn-light">More Categories <i class="ml-2 fas fa-chevron-right"></i></button>
+</div>
