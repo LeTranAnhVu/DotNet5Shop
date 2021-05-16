@@ -1,0 +1,48 @@
+@{
+    var customerComments = new List<dynamic>
+    {
+        new
+        {
+            Name = "Name and Surname",
+            Comment = "This is an super space for your customers qoute. Don’t worry it works smooth as pie. You will get all what you need by writiing a text here",
+            Avatar = "~/images/customer-portrait.jpg"
+        },
+        new
+        {
+            Name = "Name and Surname",
+            Comment = "This is an super space for your customers qoute. Don’t worry it works smooth as pie. You will get all what you need by writiing a text here",
+            Avatar = "~/images/customer-portrait.jpg"
+        },
+        new
+        {
+            Name = "Name and Surname",
+            Comment = "This is an super space for your customers qoute. Don’t worry it works smooth as pie. You will get all what you need by writiing a text here",
+            Avatar = "~/images/customer-portrait.jpg"
+        }
+    };
+}
+
+<section class="body-section">
+    <h5 class="title">Our Customer Says</h5>
+    <div class="body">
+        <div class="container">
+            <ul class="carousel1 row justify-content-center">
+                @foreach (var comment in customerComments)
+                {
+                    <li class="carousel1-item col-4">
+                        <div class="customer-comment">
+                            <q class="comment">
+                                @comment.Comment
+                            </q>
+                            <p class="customer-name">@comment.Name</p>
+                            <div class="avatar-round">
+                                <img src="@Url.Content(comment.Avatar)" alt="@comment.Name's Avatar">
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+
+    </div>
+</section>

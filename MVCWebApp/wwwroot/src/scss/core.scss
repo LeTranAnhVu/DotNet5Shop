@@ -5,10 +5,17 @@ $primary-color-light: #575757;
 $secondary-color: #6A983C;
 $secondary-color-dark: #46760A;
 $secondary-color-light: #92C064;
+$secondary-color-light-extreme: #F4F8EC;
 $white: #fff;
 $disabled: #A9A9A9;
 
 // Override Bootstrap
+.btn-outline-secondary:not(:disabled):not(.disabled).active, .btn-outline-secondary:not(:disabled):not(.disabled):active, .show>.btn-outline-secondary.dropdown-toggle {
+  color: $white;
+  background-color: $secondary-color-light;
+  border-color: $secondary-color;
+}
+
 .dropdown-toggle {
   display: flex;
   align-items: center;
@@ -22,6 +29,14 @@ $disabled: #A9A9A9;
     vertical-align: 0.255em;
     font-size: 0.6em;
     border: none;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $white;
+    background-color: $secondary-color-light;
+    border-color: $secondary-color;
   }
 }
 .btn-secondary {
@@ -49,7 +64,12 @@ ul, li {
   list-style: none;
   margin: 0;
 }
-
+p {
+  margin: 0;
+}
+.mb-80 {
+  margin-bottom: 80px;
+}
 .highlight-text {
   color: $secondary-color;
 }
@@ -73,6 +93,23 @@ ul, li {
   .col:last-child {
     justify-content: flex-end;
     padding-right: 0;
+  }
+}
+.avatar-round {
+  overflow: hidden;
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.body-section{
+  margin-bottom: 80px;
+  .title {
+    margin-bottom: 30px;
   }
 }
 
@@ -222,6 +259,171 @@ footer {
       top: 20px;
       left: 20px;
 
+    }
+  }
+}
+
+.customer-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  .comment{
+    color: $primary-color;
+    font-size: 1.1em;
+  }
+  .customer-name {
+    color: $primary-color-light;
+    font-size: 1em;
+  }
+
+
+}
+
+.blog-card {
+  position: relative;
+  .tags {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    .tag{
+      padding: 0 8px;
+      border-radius: 10px;
+      background: $secondary-color-light-extreme;
+      color: $secondary-color;
+      font-size: 0.8em;
+    }
+  }
+}
+.main-blog-card{
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+  height: 400px;
+  padding: 20px;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  img.img-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #F4F8EC;
+  }
+  .reserved {
+    flex-grow: 1;
+  }
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .title {
+      color: $white;
+      font-size: 1.1em;
+    }
+    .meta {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      .avatar-round {
+        width: 32px;
+        height: 32px;
+      }
+      .name, .date {
+        font-size: 1em;
+        color: $white;
+
+      }
+    }
+  }
+  .tags {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 2;
+  }
+}
+
+.secondary-blog-card{
+  overflow: hidden;
+  position: relative;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  img.img-bg {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    background: #F4F8EC;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  .tags {
+    margin-bottom: 10px;
+  }
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .title {
+      color: $primary-color;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+    .meta {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      .name, .date {
+        font-size: 0.9em;
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+
+.sub-blog-card{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  img.img-bg {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    background: #F4F8EC;
+    border-radius: 10px;
+  }
+  .card-content {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .title {
+      color: $primary-color;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+    .meta {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      .name, .date {
+        font-size: 0.9em;
+        color: $primary-color;
+      }
     }
   }
 }

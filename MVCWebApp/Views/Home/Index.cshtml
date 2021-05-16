@@ -6,7 +6,7 @@
 
 @section LeftSideMenu
 {
-    <div class="px-4">
+    <div>
         <div class="mb-5">
             <Partial name="Components/CategoryMenu"/>
         </div>
@@ -23,34 +23,37 @@
 
 @* Main *@
 <div>
-    <HomeBanner/>
-    <Partial name="Components/HomeBanner"/>
-    <div class="product-list">
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <Partial name="Components/ProductCard"/>
-            </div>
-            <div class="col-md-4 mb-4">
-                <Partial name="Components/ProductCard"/>
-            </div>
-            <div class="col-md-4 mb-4">
-                <Partial name="Components/ProductCard"/>
-            </div>
-            <div class="col-md-4 mb-4">
-                <Partial name="Components/ProductCard"/>
-            </div>
-            <div class="col-md-4 mb-4">
-                <Partial name="Components/ProductCard"/>
-            </div>
+    <div class="body-section">
+        <Partial name="Components/HomeBanner"/>
+    </div>
+
+    <div class="body-section">
+        <div class="product-list">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <Partial name="Components/ProductCard"/>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <Partial name="Components/ProductCard"/>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <Partial name="Components/ProductCard"/>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <Partial name="Components/ProductCard"/>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <Partial name="Components/ProductCard"/>
+                </div>
 
 
+            </div>
         </div>
     </div>
 </div>
 
 @section FullWidthPart
 {
-    <div class="row">
-        slides
-    </div>
+    <Partial name="Components/CustomerCommentsSection"/>
+    <Partial name="Components/BlogsSection"/>
 }

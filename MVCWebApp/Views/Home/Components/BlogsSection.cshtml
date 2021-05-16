@@ -1,0 +1,138 @@
+@using Microsoft.AspNetCore.Razor.Language.Extensions
+@{
+    var blogs = new List<dynamic>
+    {
+        new
+        {
+            Title = "Our chef tips for a great and tasty dinner ready in 20 minutes",
+            ImageUrl = "~/images/main-blog-bg.png",
+            AuthorName = "Firstname Lastname",
+            AvatarUrl = "~/images/customer-portrait.jpg",
+            CreatedAt = DateTime.Today.ToString("d"),
+            UpdatedAt = DateTime.Today.ToString("d"),
+            Tags = new List<string> {"Dinner tips", "Vegetable"}
+        },
+        new
+        {
+            Title = "Which vegetable your family will love and want’s eat each day",
+            ImageUrl = "~/images/sec-blog-bg.png",
+            AuthorName = "Firstname Lastname",
+            AvatarUrl = "~/images/customer-portrait.jpg",
+            CreatedAt = DateTime.Today.ToString("d"),
+            UpdatedAt = DateTime.Today.ToString("d"),
+            Tags = new List<string> {"Dinner tips", "Vegetable"}
+        },
+        new
+        {
+            Title = "Salat is kinda good start to your morning routines",
+            ImageUrl = "~/images/sub-blog-bg-1.png",
+            AuthorName = "Firstname Lastname",
+            AvatarUrl = "~/images/customer-portrait.jpg",
+            CreatedAt = DateTime.Today.ToString("d"),
+            UpdatedAt = DateTime.Today.ToString("d"),
+            Tags = new List<string> {"Dinner tips", "Vegetable"}
+        },
+        new
+        {
+            Title = "Our chef tips for a great and healthy breakfast",
+            ImageUrl = "~/images/sub-blog-bg-2.png",
+            AuthorName = "Firstname Lastname",
+            AvatarUrl = "~/images/customer-portrait.jpg",
+            CreatedAt = DateTime.Today.ToString("d"),
+            UpdatedAt = DateTime.Today.ToString("d"),
+            Tags = new List<string> {"Dinner tips", "Vegetable"}
+        },
+        new
+        {
+            Title = "Prepare a simple and delicious breads",
+            ImageUrl = "~/images/sub-blog-bg-3.png",
+            AuthorName = "Firstname Lastname",
+            AvatarUrl = "~/images/customer-portrait.jpg",
+            CreatedAt = DateTime.Today.ToString("d"),
+            UpdatedAt = DateTime.Today.ToString("d"),
+            Tags = new List<string> {"Dinner tips", "Vegetable"}
+        },
+        new
+        {
+            Title = "Prepare a simple and delicious breads",
+            ImageUrl = "~/images/sub-blog-bg-3.png",
+            AuthorName = "Firstname Lastname",
+            AvatarUrl = "~/images/customer-portrait.jpg",
+            CreatedAt = DateTime.Today.ToString("d"),
+            UpdatedAt = DateTime.Today.ToString("d"),
+            Tags = new List<string> {"Dinner tips", "Vegetable"}
+        },
+    };
+
+    var mainBlog = blogs[0];
+    var secondaryBlog = blogs[1];
+    var subBlogs = blogs.GetRange(2, 3);
+}
+
+<section class="body-section">
+    <h5 class="title">
+        Read our Blog posts
+    </h5>
+    <div class="body">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="blog-card main-blog-card">
+                    <img class="img-bg" src="@Url.Content(mainBlog.ImageUrl)" alt="@mainBlog.Title 's image">
+                    <div class="reserved"></div>
+                    <div class="card-content">
+                        <h5 class="title">@mainBlog.Title</h5>
+                        <div class="meta">
+                            <div class="avatar-round">
+                                <img src="@Url.Content(mainBlog.AvatarUrl)" alt="">
+                            </div>
+                            <p class="name">@mainBlog.AuthorName</p>
+                            <p class="date">@mainBlog.CreatedAt</p>
+                        </div>
+                    </div>
+                    <ul class="tags">
+                        @foreach (var tag in mainBlog.Tags)
+                        {
+                            <li class="tag">@tag</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="blog-card secondary-blog-card">
+                    <img class="img-bg" src="@Url.Content(secondaryBlog.ImageUrl)" alt="@secondaryBlog.Title 's image">
+                    <ul class="tags">
+                        @foreach (var tag in secondaryBlog.Tags)
+                        {
+                            <li class="tag">@tag</li>
+                        }
+                    </ul>
+                    <div class="card-content">
+                        <h5 class="title">@secondaryBlog.Title</h5>
+                        <div class="meta">
+                            <p class="name">@secondaryBlog.AuthorName</p>
+                            <p class="date">@secondaryBlog.CreatedAt</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                @foreach (var subBlog in subBlogs)
+                {
+                    <div class="blog-card sub-blog-card mb-4">
+                        <div class="card-content">
+                            <h5 class="title">@subBlog.Title</h5>
+                            <div class="meta">
+                                <p class="name">@subBlog.AuthorName</p>
+                                <p class="date">@subBlog.CreatedAt</p>
+                            </div>
+                        </div>
+                        <img class="img-bg" src="@Url.Content(subBlog.ImageUrl)" alt="@subBlog.Title 's image">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</section>
