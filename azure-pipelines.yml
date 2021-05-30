@@ -54,12 +54,11 @@ stages:
               - task: DownloadPipelineArtifact@2
                 inputs:
                   artifact: MVCServerArtifact
-                  path: $(Build.ArtifactStagingDirectory)
           deploy:
             steps:
               - download: none
-              - script: 'ls $(Build.ArtifactStagingDirectory)'
-              - script: 'dotnet $(Build.ArtifactStagingDirectory)/$(mvcServer).dll'
+              - script: 'ls $(Pipeline.Workspace)'
+              - script: 'dotnet $(Pipeline.Workspace)/$(mvcServer).dll'
             
         
       
