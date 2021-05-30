@@ -39,7 +39,7 @@ stages:
           displayName: "Publish and create artifact"
           inputs:
             targetPath: $(System.DefaultWorkingDirectory)/bin/$(mvcServer)
-            artifactName: MVCServer
+            artifactName: MVCServerArtifact
         
       
 
