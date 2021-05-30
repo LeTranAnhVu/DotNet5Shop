@@ -40,10 +40,12 @@ stages:
           inputs:
             targetPath: $(System.DefaultWorkingDirectory)/bin/$(mvcServer)
             artifactName: MVCServerArtifact
+
 - stage: Deploy
-  displayName: "Deploy"
+  displayName: "Deployment"
   jobs:
     - deployment: "deploy application job"
+      environment: pi4-mvc-dev
       strategy:
         runOnce:
           preDeploy:
