@@ -58,7 +58,8 @@ stages:
             steps:
               - download: none
               - script: 'ls $(Pipeline.Workspace)'
-              - script: 'dotnet $(Pipeline.Workspace)/$(mvcServer).dll'
+              - script: 'dotnet $(Pipeline.Workspace)/$(mvcServer).dll --urls "http://0.0.0.0:5100;https://0.0.0.0:5101'
+              
             
         
       
