@@ -56,9 +56,8 @@ stages:
           #         artifact: MVCServerArtifact
           deploy:
             steps:
-              - script: 'cd $(Pipeline.Workspace)'
-              - script: 'ls'
-              - script: 'dotnet MVCWebApp.dll'
+              - script: 'ls $(Pipeline.Workspace)'
+              - script: 'dotnet $(Pipeline.Workspace)/MVCWebApp.dll'
             
         
       
