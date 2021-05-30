@@ -33,7 +33,7 @@ stages:
             command: 'build'
             projects: $(mvcServer)
             configuration: $(buildConfiguration)
-            packDirectory: $(System.DefaultWorkingDirectory)/bin/$(mvcServer)
+            arguments: '-o $(System.DefaultWorkingDirectory)/bin/$(mvcServer)'
 
         - task: PublishPipelineArtifact@1
           displayName: "Publish and create artifact"
