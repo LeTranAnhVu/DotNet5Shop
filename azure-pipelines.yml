@@ -58,13 +58,6 @@ stages:
             steps:
               - download: none
               - script: 'pwd'
-              - script: 'cd $(Pipeline.Workspace)'
-              - script: 'dotnet ./$(mvcServer).dll --urls "http://0.0.0.0:5100;https://0.0.0.0:5101"'
-              
-            
-        
-      
-
-
-
-
+              - script: |
+                  cd $(Pipeline.Workspace)
+                  dotnet ./$(mvcServer).dll --urls "http://0.0.0.0:5100;https://0.0.0.0:5101"
