@@ -40,6 +40,23 @@ stages:
           inputs:
             targetPath: $(System.DefaultWorkingDirectory)/bin/$(mvcServer)
             artifactName: MVCServerArtifact
+- stage: Deploy
+  displayName: "Deploy"
+  jobs:
+    - deployment: "deploy application job"
+      strategy:
+        runOnce:
+          preDeploy:
+            steps:
+              - task: DownloadPipelineArtifact@2
+                inputs:
+                  artifact: MVCServerArtifact
+          deploy:
+            steps:
+              - script: 'ls -lah'
+              - script: 'cd MVCServerArtifact'
+              - script: 'dotnet $(mvcServer).dll'
+            
         
       
 
