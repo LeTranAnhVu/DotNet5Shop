@@ -21,17 +21,22 @@ stages:
       displayName: "Build MVC server"
       steps:
         - task: DotNetCoreCLI@2
+          displayName: "Restore project"
           inputs:
             command: 'restore'
             feedsToUse: 'select'
             projects: $(mvcServer)
         - task: DotNetCoreCLI@2
+          displayName: "Build project"
+
           inputs:
             command: 'build'
             projects: $(mvcServer)
             configuration: $(buildConfiguration)
+            packDirectory: $(System.DefaultWorkingDirectory)/bin/$(mvcServer)
 
         - task: PublishPipelineArtifact@1
+          displayName: "Publish and create artifact"
           inputs:
             targetPath: $(System.DefaultWorkingDirectory)/bin/$(mvcServer)
             artifactName: MVCServer
