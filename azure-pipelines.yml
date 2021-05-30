@@ -49,17 +49,14 @@ stages:
       environment: pi4-mvc-dev
       strategy:
         runOnce:
-          preDeploy:
-            steps:
-              - task: DownloadPipelineArtifact@2
-                inputs:
-                  artifact: MVCServerArtifact
+          # preDeploy:
+          #   steps:
+          #     - task: DownloadPipelineArtifact@2
+          #       inputs:
+          #         artifact: MVCServerArtifact
           deploy:
             steps:
-              - script: 'pwd'
-              - script: 'cd $(Build.ArtifactStagingDirectory)'
-              - script: 'ls -lah'
-              - script: 'dotnet $(mvcServer).dll'
+              - script: 'dotnet $(Build.ArtifactStagingDirectory)/$(mvcServer).dll'
             
         
       
