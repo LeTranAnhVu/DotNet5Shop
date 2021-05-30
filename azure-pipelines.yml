@@ -44,7 +44,8 @@ stages:
 - stage: Deploy
   displayName: "Deployment"
   jobs:
-    - deployment: "deploy application job"
+    - deployment: Deployment
+      displayName: "deploy application job"
       environment: pi4-mvc-dev
       strategy:
         runOnce:
