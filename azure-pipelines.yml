@@ -56,6 +56,7 @@ stages:
           #         artifact: MVCServerArtifact
           deploy:
             steps:
+              - script: 'ls $(Build.ArtifactStagingDirectory)'
               - script: 'dotnet $(Build.ArtifactStagingDirectory)/$(mvcServer).dll'
             
         
