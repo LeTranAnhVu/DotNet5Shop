@@ -28,9 +28,9 @@ stages:
             projects: $(mvcServer)
         - task: DotNetCoreCLI@2
           displayName: "Build project"
-
           inputs:
             command: 'build'
+            zipAfterPublish: true
             projects: $(mvcServer)
             configuration: $(buildConfiguration)
             arguments: '-o $(System.DefaultWorkingDirectory)/bin/$(mvcServer)'
@@ -51,6 +51,9 @@ stages:
         runOnce:
           preDeploy:
             steps:
+              - download: current
+                artifact: MVCServerArtifact
+                
               - task: DownloadPipelineArtifact@2
                 inputs:
                   artifact: MVCServerArtifact
@@ -58,6 +61,7 @@ stages:
             steps:
               - download: none
               - script: 'pwd'
-              - script: |
-                  cd $(Pipeline.Workspace)
-                  dotnet ./$(mvcServer).dll --urls "http://0.0.0.0:5100;https://0.0.0.0:5101"
+              - script: 'ls $(Pipeline.Workspace)'
+              # - script: |
+              #     cd $(Pipeline.Workspace)
+              #     dotnet ./$(mvcServer).dll --urls "http://0.0.0.0:5100;https://0.0.0.0:5101"
