@@ -56,12 +56,12 @@ stages:
         runOnce:
           preDeploy:
             steps:
-              - download: current
-                artifact: MVCServerArtifact
+              # - download: current
+              #   artifact: MVCServerArtifact
                 
-              # - task: DownloadPipelineArtifact@2
-              #   inputs:
-              #     artifact: MVCServerArtifact
+              - task: DownloadPipelineArtifact@2
+                inputs:
+                  artifact: MVCServerArtifact
           deploy:
             steps:
               - download: none
