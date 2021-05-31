@@ -32,8 +32,10 @@ stages:
             command: 'build'
             zipAfterPublish: true
             projects: $(mvcServer)
-            configuration: $(buildConfiguration)
-            arguments: '-o $(System.DefaultWorkingDirectory)/bin/$(mvcServer)'
+            # configuration: $(buildConfiguration)
+            arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory'
+
+            # arguments: '-o $(System.DefaultWorkingDirectory)/bin/$(mvcServer)'
 
         # - task: PublishPipelineArtifact@1
         #   displayName: "Publish and create artifact"
@@ -43,8 +45,9 @@ stages:
         - task: PublishBuildArtifacts@1
           displayName: "Publish and create artifact"
           inputs:
-            PathtoPublish: $(System.DefaultWorkingDirectory)/bin/$(mvcServer)
-            ArtifactName: MVCServerArtifact
+            PathtoPublish: $(Build.ArtifactStagingDirectory)
+            # PathtoPublish: $(System.DefaultWorkingDirectory)/bin/$(mvcServer)
+            ArtifactName: drop
             publishLocation: Container
 - stage: Deploy
   displayName: "Deployment"
@@ -57,7 +60,7 @@ stages:
           preDeploy:
             steps:
               - download: current
-                artifact: MVCServerArtifact
+                artifact: drop
           deploy:
             steps:
               - download: none
