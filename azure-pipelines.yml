@@ -33,7 +33,7 @@ stages:
             zipAfterPublish: true
             projects: $(mvcServer)
             # configuration: $(buildConfiguration)
-            arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory'
+            arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
             # arguments: '-o $(System.DefaultWorkingDirectory)/bin/$(mvcServer)'
 
