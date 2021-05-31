@@ -35,10 +35,15 @@ stages:
             configuration: $(buildConfiguration)
             arguments: '-o $(System.DefaultWorkingDirectory)/bin/$(mvcServer)'
 
-        - task: PublishPipelineArtifact@1
+        # - task: PublishPipelineArtifact@1
+        #   displayName: "Publish and create artifact"
+        #   inputs:
+        #     targetPath: $(System.DefaultWorkingDirectory)/bin/$(mvcServer)
+        #     artifactName: MVCServerArtifact
+        - task: PublishBuildArtifacts@1
           displayName: "Publish and create artifact"
           inputs:
-            targetPath: $(System.DefaultWorkingDirectory)/bin/$(mvcServer)
+            PathtoPublish: $(System.DefaultWorkingDirectory)/bin/$(mvcServer)
             artifactName: MVCServerArtifact
 
 - stage: Deploy
@@ -54,9 +59,9 @@ stages:
               - download: current
                 artifact: MVCServerArtifact
                 
-              - task: DownloadPipelineArtifact@2
-                inputs:
-                  artifact: MVCServerArtifact
+              # - task: DownloadPipelineArtifact@2
+              #   inputs:
+              #     artifact: MVCServerArtifact
           deploy:
             steps:
               - download: none
