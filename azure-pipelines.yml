@@ -60,8 +60,6 @@ stages:
               #   artifact: MVCServerArtifact
                 
               - task: DownloadPipelineArtifact@2
-                inputs:
-                  artifact: MVCServerArtifact
           deploy:
             steps:
               - download: none
