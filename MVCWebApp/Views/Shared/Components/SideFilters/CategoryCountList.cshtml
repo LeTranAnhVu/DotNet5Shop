@@ -1,0 +1,27 @@
+@{
+    var menu = new List<(string Name, int Amount)>
+    {
+        ("Bakery", 3),
+        ("Fruit", 200),
+        ("Meat and Fish", 520),
+        ("Drinks", 30),
+        ("Kitchen", 198),
+    };
+}
+
+<div class="side-widget">
+    <h5 class="title">Categories</h5>
+    <ul class="list-group">
+        @foreach (var (name, amount) in menu)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="category" value="@name" id="category-filter-@name">
+                    <label class="custom-control-label" for="category-filter-@name">@name</label>
+                </div>
+
+                @* <span class="badge badge-secondary badge-pill">@amount</span> *@
+            </li>
+        }
+    </ul>
+</div>

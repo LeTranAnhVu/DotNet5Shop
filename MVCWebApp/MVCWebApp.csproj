@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\*" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Dtos" />
   </ItemGroup>
 
@@ -14,6 +18,10 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Views\Home\Components\CustomerCommentsSection\CustomerCommentsSection.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

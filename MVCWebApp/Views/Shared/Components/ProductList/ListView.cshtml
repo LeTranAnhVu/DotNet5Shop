@@ -1,0 +1,12 @@
+@using MVCWebApp.ViewComponents
+@model List<DataAccess.Models.Product>
+<div class="product-list">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-12 mb-3">
+                <vc:product product="@product" variant="@ProductViewVariant.AdvancedCard"/>
+            </div>
+        }
+    </div>
+</div>

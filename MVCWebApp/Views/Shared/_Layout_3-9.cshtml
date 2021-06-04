@@ -2,11 +2,16 @@
     Layout = "_Layout";
 }
 
-<div class="row">
+<div class="row mb-5">
     <div class="col-md-3">
-        @RenderSection("LeftSideMenu")
+        <div class="px-4">
+            @RenderSection("LeftSideMenu")
+
+        </div>
     </div>
     <div class="col-md-9">
-        @RenderBody()
+        <div class="px-4">
+            @RenderBody()
+        </div>
     </div>
 </div>

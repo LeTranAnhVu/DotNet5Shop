@@ -1,0 +1,29 @@
+@{
+    var brands = new List<string>
+    {
+        "TM marui",
+        "Umarex",
+        "Uniliver",
+        "K marjet",
+        "Aptekki",
+        "Espresso House",
+        "Fresher Vegetable",
+        "The new flower"
+    };
+}
+
+
+<div class="side-widget">
+    <h5 class="title">Brands</h5>
+    <ul class="list-group">
+        @foreach (var brand in brands)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="brand" value="@brand" id="@brand">
+                    <label class="custom-control-label" for="@brand">@brand</label>
+                </div>
+            </li>
+        }
+    </ul>
+</div>

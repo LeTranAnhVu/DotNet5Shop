@@ -1,7 +1,33 @@
-﻿@model MVCWebApp.Controllers.Item
+﻿@using DataAccess.Models
+@model MVCWebApp.Controllers.Item
 @{
     ViewData["Title"] = "Home Page";
     Layout = "_Layout_3-9-12";
+
+    var productList = new List<Product>();
+    for (var i = 0; i < 10; i++)
+    {
+       productList.Add( new Product()
+       {
+           Name = "Product Name",
+           Description = "This is brief description",
+           ImageUrl = "~/images/fallback-img.png",
+           Price = 1.23,
+           OldPrice = 9.99,
+           DiscountText = "-36%",
+           DeliveryCost = 0,
+           DeliveryPeriod = DateTime.Today.AddDays(12),
+           ExtraInfo = new Dictionary<string, string>()
+           {
+               {"Freshness", "New (Extra fresh)"},
+               {"Farm", "Grocery Farm Fields "},
+               {"Delivery", "Europe"},
+               {"Stock", "320pcs"}
+           }
+       }
+     );
+    }
+
 }
 
 @section LeftSideMenu
@@ -28,27 +54,7 @@
     </div>
 
     <div class="body-section">
-        <div class="product-list">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <Partial name="Components/ProductCard"/>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <Partial name="Components/ProductCard"/>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <Partial name="Components/ProductCard"/>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <Partial name="Components/ProductCard"/>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <Partial name="Components/ProductCard"/>
-                </div>
-
-
-            </div>
-        </div>
+        @await Html.PartialAsync("Components/ProductList/GridView", productList)
     </div>
 </div>
 

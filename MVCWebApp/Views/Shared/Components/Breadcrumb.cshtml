@@ -1,3 +1,6 @@
+@using MVCWebApp.Services.Views
+@inject Breadcrumb BreadcrumbService
+
 @{
     var breadcrumbs = new List<string>
     {
@@ -7,7 +10,7 @@
 
 <div class="breadcrumb-wrapper px-2">
     <ul class="breadcrumb">
-        @foreach (var item in breadcrumbs)
+        @foreach (var item in BreadcrumbService.GetBreadcrumbs(ViewContext))
         {
             <li class="breadcrumb-item">
                 <a href="#">@item</a>

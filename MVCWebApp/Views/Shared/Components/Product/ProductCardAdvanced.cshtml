@@ -1,0 +1,59 @@
+@model DataAccess.Models.Product
+@{
+    var currency = "EUR";
+    var product = Model;
+}
+
+<div class="product-card-advanced">
+    <div class="img-wrapper">
+        <img src="@Url.Content(product.ImageUrl)" alt="@product.Name's image">
+    </div>
+    <div class="info">
+        <div class="row">
+            <div class="col-6">
+                <h6 class="product-name">@product.Name</h6>
+                <p class="product-description">@product.Description</p>
+                <span class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </span>
+                <ul class="extra-info-list">
+                    @foreach (var (key, value) in @product.ExtraInfo)
+                    {
+                        <li class="extra-info">
+                            <span class="info-key">@key</span>
+                            <span class="info-value">@value</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-4 text-right">
+                <div class="price-section mb-2">
+                    <p class="current-price">
+                        @product.Price <span class="currency">@currency</span>
+                    </p>
+                    <p class="old-price">@product.OldPrice</p>
+                </div>
+                <div class="delivery-info mb-2">
+                    <p class="delivery-cost">@( product.DeliveryCost == 0 ? "Free Delivery" : $"Delivery cost is {product.DeliveryCost} {currency}")</p>
+                    <p class="delivery-period">@($"Estimate delivery in {product.DeliveryPeriod.Day} day(s)")</p>
+                </div>
+                <div class="action">
+                    <button class="btn btn-secondary mb-2">Product Detail <i class="ml-2 fas fa-chevron-right"></i></button>
+                    <button class="btn btn-outline-secondary"><i class="mr-2 far fa-heart"></i> Add to wish list </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay">
+        <p class="top-left">
+            @product.DiscountText
+        </p>
+    </div>
+
+
+</div>
