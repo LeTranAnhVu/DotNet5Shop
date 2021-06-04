@@ -1,4 +1,4 @@
-namespace MVCWebApp
+namespace DataAccess
 {
     public class IdType<T>
     {

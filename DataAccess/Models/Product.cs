@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MVCWebApp.Models
+namespace DataAccess.Models
 {
     public class Product : BaseModel
     {
