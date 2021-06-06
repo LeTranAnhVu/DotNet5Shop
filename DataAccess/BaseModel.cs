@@ -1,3 +1,5 @@
+using System;
+
 namespace DataAccess
 {
     public class IdType<T>
@@ -15,8 +17,26 @@ namespace DataAccess
         }
     }
 
+    public class ModelId
+    {
+        private int id;
+
+        public static implicit operator ModelId(int i)
+        {
+            return new ModelId {id=i};
+        }
+
+        public static implicit operator int(ModelId p)
+        {
+            return p.id;
+        }
+    }
+
+
     public abstract class BaseModel
     {
-        public IdType<int> Id { get; set; }
+        public int Id { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 }

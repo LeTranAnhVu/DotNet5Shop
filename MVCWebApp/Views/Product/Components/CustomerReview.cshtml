@@ -1,0 +1,91 @@
+@model MVCWebApp.ViewComponents.CustomerReviewModel
+
+@{
+    var reviews = Model.Reviews;
+    var avgStar = Model.AvgStar;
+    var statisticStar = Model.StarStatistic;
+}
+
+<div class="customer-review">
+    <h3>Customer Reviews</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="score-section">
+                <vc:star stars="@avgStar"/>
+                <span class="score ml-3">@avgStar out of 5</span>
+            </div>
+            <ul class="star-statistic-list mt-3">
+                @foreach (var (star, percent) in statisticStar)
+                {
+                    <li class="item mb-2">
+                        <a href="#">
+                            <div class="row">
+                                <div class="col-2">
+                                    <span>@star star</span>
+                                </div>
+                                <div class="col-8">
+                                    <div class="bar">
+                                        <div style="width: @((percent * 100) + "%")"></div>
+                                    </div>
+                                </div>
+                                <div class="col-2 text-right">
+                                    <span>@(percent * 100)%</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+
+            <hr>
+            <div>
+                <h5>Review this product</h5>
+                <p>Share your thoughts with other customers</p>
+                <button class="btn btn-outline-secondary mt-2" type="button" data-toggle="collapse" data-target="#collapseReviewForm" aria-expanded="false" aria-controls="collapseReviewForm">
+                    Write a customer review
+                </button>
+                <div class="collapse mt-3" id="collapseReviewForm">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="email" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter email">
+                            <small id="nameHelp" class="form-text text-muted">You can use your nick name for reviewing.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewContent">Content</label>
+                            <textarea class="form-control" id="reviewContent" placeholder="Content"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Send it!</button>
+                    </form>
+                </div>
+            </div>
+
+            <hr>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+            <h5>Top review</h5>
+            <ul class="customer-review-list">
+                @foreach (var review in reviews)
+                {
+                    <li class="item">
+                        <div class="meta">
+                            <div class="avatar-round">
+                                <img src="@Url.Content(review.User.Avatar)" alt="">
+                            </div>
+                            <p class="name">@review.User.Name</p>
+                            <p class="date">@(review.UpdatedAt != null ? review.UpdatedAt?.ToString("D") : review.CreatedAt?.ToString("D"))</p>
+                        </div>
+                        <div class="score">
+                            <vc:star stars="@review.Stars"/> <span class="review-title ml-3">@review.Title</span>
+                        </div>
+                        <div class="content">
+                            <p>@review.Content</p>
+                        </div>
+                    </li>
+                    <hr>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

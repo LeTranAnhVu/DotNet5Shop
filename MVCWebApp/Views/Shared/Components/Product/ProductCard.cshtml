@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-12">
                 <h6 class="product-name">@product.Name</h6>
-                <p class="product-description">@product.Description</p>
+                <p class="product-description">@product.BriefDescription</p>
             </div>
             <div class="col-6">
                 <div class="price-section">
@@ -24,8 +24,11 @@
             </div>
             <div class="col-6">
                 <div class="action text-right">
-                    <button class="btn btn-secondary">Buy now</button>
+                    <a class="btn btn-secondary" asp-action="ProductDetail" asp-controller="Product" asp-route-id="@product.Id">Detail</a>
                 </div>
+                @* <div class="action text-right"> *@
+                @*     <button class="btn btn-secondary">Buy now</button> *@
+                @* </div> *@
             </div>
         </div>
     </div>

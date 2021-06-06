@@ -7,6 +7,12 @@ namespace DataAccess.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
+        public string BriefDescription { get; set; }
+
+        public string VerboseDescription { get; set; }
+
+
+        public string Sku { get; set; }
         public string ImageUrl { get; set; }
         public double Price { get; set; }
         public double OldPrice { get; set; }
@@ -14,5 +20,7 @@ namespace DataAccess.Models
         public double DeliveryCost { get; set; }
         public DateTime DeliveryPeriod { get; set; }
         public Dictionary<string, string> ExtraInfo { get; set; }
+        public float Stars { get; set; }
+        public int ReviewCount { get; set; }
     }
 }

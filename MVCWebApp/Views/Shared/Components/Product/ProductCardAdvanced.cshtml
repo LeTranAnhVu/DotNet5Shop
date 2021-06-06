@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-6">
                 <h6 class="product-name">@product.Name</h6>
-                <p class="product-description">@product.Description</p>
+                <p class="product-description">@product.BriefDescription</p>
                 <span class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -20,12 +20,12 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </span>
-                <ul class="extra-info-list">
+                <ul class="key-value-list mt-5">
                     @foreach (var (key, value) in @product.ExtraInfo)
                     {
-                        <li class="extra-info">
-                            <span class="info-key">@key</span>
-                            <span class="info-value">@value</span>
+                        <li class="key-value-item">
+                            <span class="key">@key</span>
+                            <span class="value">@value</span>
                         </li>
                     }
                 </ul>
@@ -43,7 +43,7 @@
                     <p class="delivery-period">@($"Estimate delivery in {product.DeliveryPeriod.Day} day(s)")</p>
                 </div>
                 <div class="action">
-                    <button class="btn btn-secondary mb-2">Product Detail <i class="ml-2 fas fa-chevron-right"></i></button>
+                    <a class="btn btn-secondary mb-2" asp-action="ProductDetail" asp-route-id="@product.Id">Product Detail <i class="ml-2 fas fa-chevron-right"></i></a>
                     <button class="btn btn-outline-secondary"><i class="mr-2 far fa-heart"></i> Add to wish list </button>
                 </div>
             </div>

@@ -1,0 +1,24 @@
+@model float
+
+@{
+    var stars = Model;
+    var wholeStars = (int) stars;
+    var isHalfStar = stars - wholeStars > 0;
+    var emptyStars = 5 - stars - (isHalfStar ? 1 : 0);
+}
+
+<span class="stars">
+    @for (var i = 0; i < wholeStars; i++)
+    {
+        <i class="fas fa-star"></i>
+    }
+    @if (isHalfStar)
+    {
+        <i class="fas fa-star-half-alt"></i>
+    }
+
+     @for (var i = 0; i < emptyStars; i++)
+        {
+            <i class="far fa-star"></i>
+        }
+</span>

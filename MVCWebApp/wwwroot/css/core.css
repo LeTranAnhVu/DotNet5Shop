@@ -132,6 +132,41 @@ span.stars {
   gap: 5px;
 }
 span.stars .fa-star, span.stars .fa-star-half-alt {
+  color: #FDBC15;
+}
+
+.img-slider .img-item {
+  width: 100%;
+}
+.img-slider .img-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.tags .tag {
+  padding: 0 8px;
+  border-radius: 10px;
+  background: #F4F8EC;
+  color: #6A983C;
+  font-size: 0.8em;
+}
+
+.key-value-list .key-value-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.key-value-list .key-value-item .key {
+  color: #A9A9A9;
+}
+.key-value-list .key-value-item .value {
   color: #92C064;
 }
 
@@ -298,6 +333,75 @@ header .breadcrumb-wrapper .breadcrumb {
   left: 20px;
 }
 
+.product-detail-info .product-img {
+  position: relative;
+}
+.product-detail-info .product-img .overlay {
+  color: #6A983C;
+}
+.product-detail-info .product-img .overlay .top-left {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.product-detail-info .sub-title {
+  display: flex;
+  align-items: center;
+}
+.product-detail-info a.review-count {
+  color: #A9A9A9;
+}
+.product-detail-info .card {
+  display: flex;
+}
+.product-detail-info .card .price-section .current-price {
+  font-size: 2em;
+  color: #6A983C;
+}
+.product-detail-info .card .price-section .old-price {
+  font-size: 0.9em;
+  color: #A9A9A9;
+  text-decoration: line-through;
+}
+.product-detail-info .card .order-amount.btn {
+  border: 1px solid #A9A9A9;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 5px;
+}
+.product-detail-info .card .order-amount.btn input.amount {
+  border: none;
+  width: 80px;
+  padding: 3px;
+  font-size: 1.3em;
+  outline: none;
+}
+.product-detail-info .card .order-amount.btn .btn-vertical {
+  display: flex;
+  flex-direction: column;
+}
+.product-detail-info .card .order-amount.btn .btn-vertical .btn-up,
+.product-detail-info .card .order-amount.btn .btn-vertical .btn-down {
+  padding: 1px;
+  border: none;
+  background: transparent;
+  line-height: 0.5;
+}
+.product-detail-info .card .order-amount.btn .btn-vertical svg {
+  font-size: 0.8em;
+}
+
+.product-detail-extra-info [role=tab] {
+  color: #151515;
+  font-size: 1.5em;
+  padding-left: 0;
+  margin-right: 20px;
+}
+.product-detail-extra-info [role=tab].active {
+  border-bottom: 3px solid #92C064;
+}
+
 .product-card-advanced {
   width: 100%;
   position: relative;
@@ -343,21 +447,6 @@ header .breadcrumb-wrapper .breadcrumb {
   font-size: 0.8em;
   margin: 0;
 }
-.product-card-advanced .info .extra-info-list {
-  margin-top: 20px;
-}
-.product-card-advanced .info .extra-info-list .extra-info {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-.product-card-advanced .info .extra-info-list .extra-info .info-key {
-  color: #A9A9A9;
-}
-.product-card-advanced .info .extra-info-list .extra-info .info-value {
-  color: #92C064;
-}
 .product-card-advanced .info .action {
   display: flex;
   flex-direction: column;
@@ -387,20 +476,55 @@ header .breadcrumb-wrapper .breadcrumb {
   font-size: 1em;
 }
 
-.blog-card {
+.customer-review .score-section {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.customer-review .star-statistic-list .item span {
+  color: #46760A;
+}
+.customer-review .star-statistic-list .item .bar {
+  background: #fbf7f7;
+  border: 0.1px solid #ccc;
+  border-radius: 3px;
+  height: 20px;
+  width: 100%;
+  overflow: hidden;
   position: relative;
 }
-.blog-card .tags {
+.customer-review .star-statistic-list .item .bar:hover {
+  background: #f0ffe1;
+  border-color: #92C064;
+}
+.customer-review .star-statistic-list .item .bar div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1;
+  background: #6A983C;
+}
+.customer-review .customer-review-list .item .meta {
   display: flex;
   flex-direction: row;
-  gap: 5px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
 }
-.blog-card .tags .tag {
-  padding: 0 8px;
-  border-radius: 10px;
-  background: #F4F8EC;
-  color: #6A983C;
-  font-size: 0.8em;
+.customer-review .customer-review-list .item .meta .avatar-round {
+  width: 32px;
+  height: 32px;
+}
+.customer-review .customer-review-list .item .meta .name, .customer-review .customer-review-list .item .meta .date {
+  font-size: 1em;
+}
+.customer-review .customer-review-list .item .score {
+  display: flex;
+  align-items: center;
+}
+.customer-review .customer-review-list .item .score .review-title {
+  font-weight: bold;
 }
 
 .main-blog-card {
