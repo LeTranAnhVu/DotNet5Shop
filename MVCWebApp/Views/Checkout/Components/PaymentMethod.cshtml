@@ -1,0 +1,100 @@
+@{
+
+}
+
+<section class="section">
+    <div class="header">
+        <h3 class="title">Payment method</h3>
+        <p class="sub-title">Please enter your payment method</p>
+    </div>
+    <div class="body">
+        <div class="card card-body">
+            <div class="row">
+                <div class="col-6">
+                    <input
+                        type="radio"
+                        name="paymentmethod"
+                        value="vsandmc"
+                        aria-label="Radio button for following text input"
+                        data-toggle="collapse"
+                        data-target="#collapseVisa"
+                        aria-expanded="false"
+                        aria-controls="collapseVisa">
+                </div>
+                <div class="col-6 text-right">
+                    <div class="img-wrapper">
+                        <img src="@Url.Content("~/images/visa.png")" alt="Visa">
+                        <img src="@Url.Content("~/images/mc.png")" alt="Master card">
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapse mt-4" id="collapseVisa">
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="cardnumber">Card number</label>
+                        <input type="text" class="form-control" id="cardnumber" placeholder="Card number">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <label for="cardholder">Card holder</label>
+                        <input type="text" class="form-control" id="cardholder" placeholder="Card holder">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="expdate">Expiration date</label>
+                        <input type="text" class="form-control" id="expdate" placeholder="DD/MM/YY">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="cvc">CVC</label>
+                        <input type="text" class="form-control" id="cvc" placeholder="CVC">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-body">
+            <div class="row">
+                <div class="col-6">
+                    <input
+                        type="radio"
+                        name="paymentmethod"
+                        value="paypal"
+                        aria-label="Radio button for following text input"
+                        data-toggle="collapse"
+                        data-target="#collapsePaypal"
+                        aria-expanded="false"
+                        aria-controls="collapsePaypal">
+                </div>
+                <div class="col-6 text-right">
+                    <div class="img-wrapper">
+                        <img src="@Url.Content("~/images/paypal.png")" alt="Visa">
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapse mt-4" id="collapsePaypal">
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="cardnumber">Card number</label>
+                        <input type="text" class="form-control" id="cardnumber" placeholder="Card number">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <label for="cardholder">Card holder</label>
+                        <input type="text" class="form-control" id="cardholder" placeholder="Card holder">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="expdate">Expiration date</label>
+                        <input type="text" class="form-control" id="expdate" placeholder="DD/MM/YY">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="cvc">CVC</label>
+                        <input type="text" class="form-control" id="cvc" placeholder="CVC">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

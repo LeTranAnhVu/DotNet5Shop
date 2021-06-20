@@ -49,6 +49,17 @@
   border-color: #6A983C;
 }
 
+.input-group.no-button-border {
+  border: 1px #ccc solid;
+  border-radius: 3px;
+}
+.input-group.no-button-border input {
+  border: none;
+}
+.input-group.no-button-border .input-group-append button {
+  border: none;
+}
+
 a {
   color: #92C064;
 }
@@ -168,6 +179,15 @@ span.stars .fa-star, span.stars .fa-star-half-alt {
 }
 .key-value-list .key-value-item .value {
   color: #92C064;
+}
+
+.section .header {
+  margin-bottom: 30px;
+}
+.section .header .sub-title {
+  color: #A9A9A9;
+  font-size: 0.8em;
+  font-style: italic;
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
@@ -294,6 +314,48 @@ header .breadcrumb-wrapper .breadcrumb {
   background: #46760A;
 }
 
+.price-section .current-price {
+  color: #6A983C;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
+.price-section .old-price {
+  color: #A9A9A9;
+  text-decoration: line-through;
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.order-amount.btn {
+  border: 1px solid #A9A9A9;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 5px;
+}
+.order-amount.btn input.amount {
+  border: none;
+  width: 80px;
+  padding: 3px;
+  font-size: 1.3em;
+  outline: none;
+}
+.order-amount.btn .btn-vertical {
+  display: flex;
+  flex-direction: column;
+}
+.order-amount.btn .btn-vertical .btn-up,
+.order-amount.btn .btn-vertical .btn-down {
+  padding: 1px;
+  border: none;
+  background: transparent;
+  line-height: 0.5;
+}
+.order-amount.btn .btn-vertical svg {
+  font-size: 0.8em;
+}
+
 .product-card {
   width: 100%;
   position: relative;
@@ -314,18 +376,6 @@ header .breadcrumb-wrapper .breadcrumb {
 }
 .product-card .info .product-description {
   color: #575757;
-}
-.product-card .info .price-section .current-price {
-  color: #151515;
-  font-weight: bold;
-  font-size: 1.2em;
-  margin-bottom: 0;
-}
-.product-card .info .price-section .old-price {
-  color: #A9A9A9;
-  text-decoration: line-through;
-  font-size: 0.8em;
-  margin: 0;
 }
 .product-card .overlay .top-left {
   position: absolute;
@@ -362,34 +412,6 @@ header .breadcrumb-wrapper .breadcrumb {
   font-size: 0.9em;
   color: #A9A9A9;
   text-decoration: line-through;
-}
-.product-detail-info .card .order-amount.btn {
-  border: 1px solid #A9A9A9;
-  border-radius: 5px;
-  display: inline-flex;
-  align-items: center;
-  padding: 0 5px;
-}
-.product-detail-info .card .order-amount.btn input.amount {
-  border: none;
-  width: 80px;
-  padding: 3px;
-  font-size: 1.3em;
-  outline: none;
-}
-.product-detail-info .card .order-amount.btn .btn-vertical {
-  display: flex;
-  flex-direction: column;
-}
-.product-detail-info .card .order-amount.btn .btn-vertical .btn-up,
-.product-detail-info .card .order-amount.btn .btn-vertical .btn-down {
-  padding: 1px;
-  border: none;
-  background: transparent;
-  line-height: 0.5;
-}
-.product-detail-info .card .order-amount.btn .btn-vertical svg {
-  font-size: 0.8em;
 }
 
 .product-detail-extra-info [role=tab] {
@@ -459,6 +481,34 @@ header .breadcrumb-wrapper .breadcrumb {
   position: absolute;
   top: 20px;
   left: 20px;
+}
+
+.ordered-item-card .img-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.ordered-item-card .img-wrapper img {
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+.ordered-item-card .info {
+  position: relative;
+}
+.ordered-item-card .info .remove-item {
+  font-size: 0.8em;
+  color: #E5704B;
+  padding: 0;
+}
+.ordered-item-card .info .remove-item:hover {
+  text-decoration: underline;
+}
+.ordered-item-card .info .overlay {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  line-height: 1;
 }
 
 .customer-comment {
@@ -656,6 +706,14 @@ header .breadcrumb-wrapper .breadcrumb {
 .sub-blog-card .card-content .meta .name, .sub-blog-card .card-content .meta .date {
   font-size: 0.9em;
   color: #151515;
+}
+
+.order-summary .total-order-key {
+  font-size: 1.5em;
+}
+.order-summary .total-order-price {
+  font-size: 1.5em;
+  color: #6A983C;
 }
 
 /*# sourceMappingURL=core.css.map */

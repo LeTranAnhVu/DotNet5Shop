@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MVCWebApp.Services;
 using MVCWebApp.Services.Views;
 
 namespace MVCWebApp
@@ -29,6 +30,7 @@ namespace MVCWebApp
 
 
             services.AddTransient<Breadcrumb>();
+            services.AddTransient<ProductService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

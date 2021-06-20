@@ -1,0 +1,29 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="row mb-5">
+    <div class="col-md-7">
+        <div class="px-4">
+            <div class="mb-5">
+                <Partial name="Components/BillInfo"/>
+            </div>
+            <div class="mb-5">
+                <Partial name="Components/PaymentMethod"/>
+            </div>
+            <div class="mb-5">
+                <Partial name="Components/AdditionalInfo"/>
+            </div>
+            <div class="mb-5">
+                <Partial name="Components/Confirmation"/>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="px-4">
+            <div class="card card-body">
+                <Partial name="Components/OrderSummary"/>
+            </div>
+        </div>
+    </div>
+</div>

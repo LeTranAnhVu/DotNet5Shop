@@ -1,0 +1,53 @@
+@model DataAccess.Models.Product
+@{
+    var currency = "EUR";
+    var product = Model;
+}
+
+<div class="ordered-item-card">
+    <div class="row">
+        <div class="col-4">
+            <div class="img-wrapper">
+                <img src="@Url.Content(product.ImageUrl)" alt="@product.Name's image">
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="info">
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <h6 class="product-name">@product.Name</h6>
+                        <vc:star stars="@product.Stars"/>
+                    </div>
+                    <div class="col-6">
+                        <div class="price-section">
+                            <p class="current-price">
+                                @product.Price <span class="currency">@currency</span>
+                            </p>
+                            <p class="old-price">@product.OldPrice</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="action text-right">
+                            <div class="order-amount btn">
+                                <input type="text" class="amount" value="1" min="1"/>
+                                <div class="btn-vertical">
+                                    <button class="btn-up">
+                                        <i class="fas fa-chevron-up"></i>
+                                    </button>
+                                    <button class="btn-down">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay">
+                    <button class="btn remove-item">Remove it</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

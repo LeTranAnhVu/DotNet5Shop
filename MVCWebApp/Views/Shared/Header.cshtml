@@ -79,9 +79,20 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                                <div class="dropdown">
+                                  <div class="nav-link text-dark" type="button" id="cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-cart-plus"></i>
-                                </a>
+                                  </div>
+                                  <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="cart">
+                                      <ul class="dropdown-item" href="#">
+                                          <li>item a </li>
+                                          <li>item b </li>
+                                          <li>item c </li>
+                                          <li>item d </li>
+                                      </ul>
+                                   <a class="btn btn-secondary dropdown-item" asp-controller="Checkout" asp-action="Index">Go to checkout page</a>
+                                  </div>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -106,10 +117,8 @@
                                 @category
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" asp-controller="Product" asp-action="Index" asp-route-category="@category action">Action</a>
+                                <a class="dropdown-item"asp-controller="Product" asp-action="Index" asp-route-category="@category another action">Another action</a>
                             </div>
                         </li>
                     }
