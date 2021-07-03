@@ -294,6 +294,7 @@ header .breadcrumb-wrapper .breadcrumb {
 }
 
 .product-view-switch a {
+  cursor: pointer;
   margin-left: 10px;
 }
 .product-view-switch a:hover {
