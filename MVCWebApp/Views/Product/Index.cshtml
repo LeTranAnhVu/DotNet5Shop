@@ -37,3 +37,80 @@
         }
     </div>
 </div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function parseQuery(query){
+              let queryStr = '?';
+              const queryCollection = [];
+              for (const [key, value] of Object.entries(query)) {
+                queryCollection.push(`${key}=${value}`);
+              }
+              queryStr += queryCollection.join('&');
+               return queryStr;
+            }
+            function updateUrl(queryStr) {
+                window.history.replaceState(null, null, queryStr);
+            }
+
+            function handleCheckboxesChange($checkboxes, values){
+               $checkboxes.change((event) => {
+                   if(event.target.checked) {
+                             values.add(event.target.value);
+                    }else{
+                             values.delete(event.target.value);
+                  }
+               });
+            }
+             
+            function handleNumberInputChange($input, output) {
+              $input.change(event => {
+                if(typeof output === 'object' ) {
+                   output.value = event.target.value;
+                }else {
+                  output = event.target.value;
+                }
+              })
+            }
+            // Brands
+            let brandSet = new Set();
+            const brandFilterCheckboxes = $('.brand-filters input[type=checkbox]');
+            handleCheckboxesChange(brandFilterCheckboxes, brandSet);
+
+            // Categories
+             let categorySet = new Set();
+             const categoryFilterCheckboxes = $('.category-filters input[type=checkbox]');
+             handleCheckboxesChange(categoryFilterCheckboxes, categorySet);
+
+             // Min & Max
+            let minProxy = {value: undefined}
+            let maxProxy = {value: undefined}
+            const minInput = $('.min-max-filters input#min-price');
+            const maxInput = $('.min-max-filters input#max-price');
+
+            handleNumberInputChange(minInput, minProxy);
+            handleNumberInputChange(maxInput, maxProxy);
+
+
+            var $applyBtn = $('.side-filters .js-btn-submit');
+
+            $applyBtn.click(function (event){
+              event.preventDefault();
+
+              const queryObj = {};
+
+              queryObj.brands = Array.from(brandSet);
+              queryObj.categories = Array.from(categorySet);
+              queryObj.min = minProxy.value;
+              queryObj.max = maxProxy.value;
+              const queryStr = parseQuery(queryObj);
+
+              updateUrl(queryStr);
+              console.log(window.location.href);
+                // window.location.href = window.location.href
+        });
+    });
+    </script>
+}
