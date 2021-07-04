@@ -16,6 +16,11 @@
     </div>
 </div>
 
+@section Css
+{
+    @await RenderSectionAsync("Css", required: false)
+}
+
 @section Scripts
 {
     @await RenderSectionAsync("Scripts", required: false)

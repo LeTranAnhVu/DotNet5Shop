@@ -1,3 +1,4 @@
 {
+  "core": "./src/core.js",
   "products": "./src/views/products.js"
 }

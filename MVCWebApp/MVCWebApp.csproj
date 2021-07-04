@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Views\Home\Components\CustomerCommentsSection\CustomerCommentsSection.cshtml" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\bundle\products.js" />
   </ItemGroup>
 
   <ItemGroup>
