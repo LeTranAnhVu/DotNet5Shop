@@ -79,9 +79,9 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-md-8 align-items-center d-flex">
-                        <div class="order-amount btn">
-                            <input type="text" class="amount" value="1" min="1"/>
+                    <div class="col-md-8 align-items-center d-flex js-update-cart-box" data-id="@product.Id" data-name="@product.Name">
+                        <div class="order-amount btn js-up-down-btn">
+                            <input type="number" class="amount" name="amount" min="1"/>
                             <div class="btn-vertical">
                                 <button class="btn-up">
                                     <i class="fas fa-chevron-up"></i>
@@ -91,7 +91,7 @@
                                 </button>
                             </div>
                         </div>
-                        <button class="btn btn-secondary ml-4"> <i class="fa fa-plus mr-2"></i> Add to cart</button>
+                        <button class="btn btn-secondary ml-4 js-add-to-cart-btn"> <i class="fa fa-plus mr-2"></i> Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -120,3 +120,13 @@
 
     </div>
 </div>
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/bundle/product-detail/product-detail.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            run()
+        })
+    </script>
+}

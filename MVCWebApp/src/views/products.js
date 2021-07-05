@@ -5,7 +5,7 @@ import {handleNumberInputChange} from '../helpers/handleNumberInputChange'
 import {parseCurrentParam, stringifyQuery, updateUrl} from '../helpers/queryParam'
 import {loadCheckboxState} from '../helpers/loadCheckboxState'
 import {loadInputState} from '../helpers/loadInputState'
-import SearchQueryHandler from '../shared/searchQueryHandler'
+import SearchQueryHandler from '../features/searchQueryHandler'
 
 export function run() {
   const filterHandler = new SideFilterHandler()

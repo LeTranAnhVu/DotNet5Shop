@@ -104,6 +104,10 @@ p {
   margin: 0;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .mb-80 {
   margin-bottom: 80px;
 }
@@ -442,6 +446,18 @@ footer {
     padding: 3px;
     font-size: 1.3em;
     outline: none;
+
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    &[type=number] {
+      -moz-appearance: textfield;
+    }
   }
 
   .btn-vertical {
