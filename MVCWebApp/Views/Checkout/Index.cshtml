@@ -8,9 +8,9 @@
             <div class="mb-5">
                 <Partial name="Components/BillInfo"/>
             </div>
-            <div class="mb-5">
-                <Partial name="Components/PaymentMethod"/>
-            </div>
+            @* <div class="mb-5"> *@
+            @*     <Partial name="Components/PaymentMethod"/> *@
+            @* </div> *@
             <div class="mb-5">
                 <Partial name="Components/AdditionalInfo"/>
             </div>
@@ -27,3 +27,13 @@
         </div>
     </div>
 </div>
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/bundle/checkout/checkout.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            run()
+        })
+    </script>
+}

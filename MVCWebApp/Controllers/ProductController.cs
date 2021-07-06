@@ -26,7 +26,11 @@ namespace MVCWebApp.Controllers
             _productService = productService;
         }
 
-        public async Task<IActionResult> Index(string productViewType, [FromQuery(Name = "brands[]")]List<string> brands, [FromQuery(Name = "categories[]")] List<string> categories)
+        public async Task<IActionResult> Index(
+            string productViewType,
+            [FromQuery(Name = "brands[]")]List<string> brands,
+            [FromQuery(Name = "categories[]")] List<string> categories
+            )
         {
             ViewData["productViewType"] = productViewType;
             var products = await _productService.GetProducts();

@@ -1,5 +1,6 @@
 {
   "core": "./src/core.js",
   "products": "./src/views/products.js",
-  "product-detail": "./src/views/product-detail.js"
+  "product-detail": "./src/views/product-detail.js",
+  "checkout": "./src/views/checkout.js"
 }
