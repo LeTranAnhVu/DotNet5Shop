@@ -1,7 +1,5 @@
 import $ from 'jquery'
-
 import SearchQueryHandler from '../features/searchQueryHandler'
-import Cart, {loadCartItemsFromLocalStorage} from '../features/cart'
 
 export function run() {
   const cartHandler = new CartHandler()
@@ -19,13 +17,15 @@ class CartHandler {
   $upBtn = $('.js-update-cart-box .btn-up')
   $downBtn = $('.js-update-cart-box .btn-down')
   _product = {}
+  $store = window.$store
 
   run() {
+    this.$store.commit('loadCartItem')
+
+    const items = $store.getters('getCartItems')
+    console.log('----> iten:', items)
     this._product.id = parseInt(this.$updateCartBox.attr('data-id'))
     this._product.name = this.$updateCartBox.attr('data-name')
-
-    const items = loadCartItemsFromLocalStorage() || []
-    this._cart = new Cart(items)
 
     this.updateState()
     this.listenAddToCartButton()
@@ -35,7 +35,9 @@ class CartHandler {
   }
 
   updateState() {
-    const item = this._cart._items.find(_item => _item.id === this._product.id)
+    const items = $store.getters('getCartItems')
+
+    const item = items.find(_item => _item.id === this._product.id)
     if (item) {
       this.$addToCartBtn.addClass('hidden')
       this.$upDownBtnBox.removeClass('hidden')
@@ -53,7 +55,7 @@ class CartHandler {
   listenInputChange() {
     this.$amountInput.change(event => {
       const updatedAmount = parseInt(event.target.value)
-      this._cart.updateItem({...this._product, amount: updatedAmount})
+      this.$store.commit('updateCartItem', {...this._product, amount: updatedAmount})
       this.updateState()
     })
   }
@@ -61,7 +63,7 @@ class CartHandler {
   listenAddToCartButton() {
     this.$addToCartBtn.click(event => {
       event.preventDefault()
-      this._cart.increaseItem({...this._product})
+      this.$store.commit('increaseCartItem', {...this._product})
       this.updateState()
     })
   }
@@ -69,7 +71,7 @@ class CartHandler {
   listenDownBtn() {
     this.$downBtn.click(event => {
       event.preventDefault()
-      this._cart.decreaseItem({...this._product})
+      this.$store.commit('decreaseCartItem', {...this._product})
       this.updateState()
     })
   }
@@ -77,7 +79,7 @@ class CartHandler {
   listenUpBtn() {
     this.$upBtn.click(event => {
       event.preventDefault()
-      this._cart.increaseItem({...this._product})
+      this.$store.commit('increaseCartItem', {...this._product})
       this.updateState()
     })
   }
