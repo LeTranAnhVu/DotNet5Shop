@@ -75,23 +75,21 @@
                         <ul class="navbar-nav flex-grow-2 user-links">
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
-                                    <i class="far fa-user"></i>
+                                    <i class="far fa-user user-icon"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <div class="dropdown">
-                                  <div class="nav-link text-dark" type="button" id="cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-cart-plus"></i>
-                                  </div>
-                                  <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="cart">
-                                      <ul class="dropdown-item" href="#">
-                                          <li>item a </li>
-                                          <li>item b </li>
-                                          <li>item c </li>
-                                          <li>item d </li>
-                                      </ul>
-                                   <a class="btn btn-secondary dropdown-item" asp-controller="Checkout" asp-action="Index">Go to checkout page</a>
-                                  </div>
+                                <div class="dropdown cart">
+                                    <div class="nav-link text-dark" type="button" id="cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-cart-plus cart-icon"></i>
+                                        <span class="badge badge-pill cart-badge hidden"></span>
+                                    </div>
+                                    <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="cart">
+                                        <ul class="dropdown-item cart-list">
+                                        </ul>
+                                        <hr>
+                                        <a class="go-to-checkout-btn" asp-controller="Checkout" asp-action="Index">Go to checkout page</a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>

@@ -26,7 +26,6 @@ module.state = {
 
 module.getters = {
   getCartItems: (context, payload) => {
-    console.log('module.state', module.state)
     const state = module.state
     return state.items
   }
@@ -51,6 +50,8 @@ module.mutations = {
     if (!exist) {
       state.items.push({...item, amount: 1})
     }
+
+    saveCartItemsFromLocalStorage(state.items)
   },
   removeCartItem(context, item) {
     const state = module.state
@@ -59,6 +60,8 @@ module.mutations = {
     if (idx !== -1) {
       state.items.splice(idx, 1)
     }
+
+    saveCartItemsFromLocalStorage(state.items)
   },
 
   increaseCartItem(context, item) {
@@ -88,7 +91,7 @@ module.mutations = {
       }
     }
 
-    saveCartItemsFromLocalStorage(this._items)
+    saveCartItemsFromLocalStorage(state.items)
   },
 
   updateCartItem(context, item) {

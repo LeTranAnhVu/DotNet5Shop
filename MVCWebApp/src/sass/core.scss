@@ -104,6 +104,12 @@ p {
   margin: 0;
 }
 
+.icon-btn {
+  color: $danger;
+  border: none;
+  background: transparent;
+}
+
 .hidden {
   display: none !important;
 }
@@ -316,6 +322,52 @@ header {
   .breadcrumb-wrapper {
     .breadcrumb {
       background: none;
+    }
+  }
+
+  .user-links {
+    .cart-icon, .user-icon {
+      font-size: 1.5em;
+    }
+  }
+
+  .cart {
+    .nav-link {
+      position: relative;
+
+      .cart-badge {
+        background: $danger;
+        color: $white;
+        position: absolute;
+        top: 0;
+        right: -12px;
+        font-size: 0.7em;
+      }
+    }
+    .dropdown-menu {
+      text-align: center;
+    }
+    .cart-list {
+      width: 300px;
+      &:hover {
+        background: initial;
+      }
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        a {
+        }
+        button {
+
+        }
+      }
+    }
+
+    .go-to-checkout-btn {
+      color: $secondary-color-dark;
     }
   }
 }
@@ -673,7 +725,8 @@ footer {
       font-size: 0.8em;
       color: $danger;
       padding: 0;
-      &:hover{
+
+      &:hover {
         text-decoration: underline;
       }
     }

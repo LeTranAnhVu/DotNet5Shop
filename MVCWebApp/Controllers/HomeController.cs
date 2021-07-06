@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MVCWebApp.Models;
+using MVCWebApp.Services;
 
 namespace MVCWebApp.Controllers
 {
@@ -17,18 +18,19 @@ namespace MVCWebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ProductService _productService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ProductService productService)
         {
             _logger = logger;
+            _productService = productService;
+
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(new Item()
-            {
-                Name = "Carrot"
-            });
+            var products = await _productService.GetProducts();
+            return View(products);
         }
 
         public IActionResult Privacy()

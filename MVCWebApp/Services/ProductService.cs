@@ -20,7 +20,7 @@ namespace MVCWebApp.Services
                 productList.Add(new Product()
                 {
                     Id = i + 1,
-                    Name = "Product Name",
+                    Name = "Product Name " + (i + 1),
                     Sku = "Product-2020-" + i + 1,
                     Stars = 4.5f,
                     ReviewCount = 1,

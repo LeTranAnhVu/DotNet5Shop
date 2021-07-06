@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import SearchQueryHandler from '../features/searchQueryHandler'
+import SearchQueryHandler from '../components/searchQueryHandler'
 
 export function run() {
   const cartHandler = new CartHandler()
@@ -18,12 +18,9 @@ class CartHandler {
   $downBtn = $('.js-update-cart-box .btn-down')
   _product = {}
   $store = window.$store
+  $subPub = window.$subPub
 
   run() {
-    this.$store.commit('loadCartItem')
-
-    const items = $store.getters('getCartItems')
-    console.log('----> iten:', items)
     this._product.id = parseInt(this.$updateCartBox.attr('data-id'))
     this._product.name = this.$updateCartBox.attr('data-name')
 
@@ -32,6 +29,9 @@ class CartHandler {
     this.listenUpBtn()
     this.listenDownBtn()
     this.listenInputChange()
+    this.$subPub.sub('cart-change', () => {
+      this.updateState()
+    })
   }
 
   updateState() {
@@ -50,6 +50,7 @@ class CartHandler {
       this.$addToCartBtn.removeClass('hidden')
       this.$upDownBtnBox.addClass('hidden')
     }
+
   }
 
   listenInputChange() {
@@ -57,6 +58,7 @@ class CartHandler {
       const updatedAmount = parseInt(event.target.value)
       this.$store.commit('updateCartItem', {...this._product, amount: updatedAmount})
       this.updateState()
+      this.$subPub.pub('cart-change')
     })
   }
 
@@ -65,6 +67,7 @@ class CartHandler {
       event.preventDefault()
       this.$store.commit('increaseCartItem', {...this._product})
       this.updateState()
+      this.$subPub.pub('cart-change')
     })
   }
 
@@ -73,6 +76,7 @@ class CartHandler {
       event.preventDefault()
       this.$store.commit('decreaseCartItem', {...this._product})
       this.updateState()
+      this.$subPub.pub('cart-change')
     })
   }
 
@@ -81,6 +85,7 @@ class CartHandler {
       event.preventDefault()
       this.$store.commit('increaseCartItem', {...this._product})
       this.updateState()
+      this.$subPub.pub('cart-change')
     })
   }
 

@@ -13,7 +13,6 @@
         {
             tags.Add("Free Shipping");
         }
-
     }
 
 }
@@ -66,35 +65,39 @@
                 }
 
             </ul>
-
-            <div class="card mt-5 p-2">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="price-section">
-                            <p class="current-price">
-                                @product.Price <span class="currency">@currency</span>
-                            </p>
-                            <p class="old-price">
-                                @product.OldPrice <span class="currency">@currency</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-8 align-items-center d-flex js-update-cart-box" data-id="@product.Id" data-name="@product.Name">
-                        <div class="order-amount btn js-up-down-btn">
-                            <input type="number" class="amount" name="amount" min="1"/>
-                            <div class="btn-vertical">
-                                <button class="btn-up">
-                                    <i class="fas fa-chevron-up"></i>
-                                </button>
-                                <button class="btn-down">
-                                    <i class="fas fa-chevron-down"></i>
-                                </button>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="card mt-5 p-2">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="price-section">
+                                    <p class="current-price">
+                                        @product.Price <span class="currency">@currency</span>
+                                    </p>
+                                    <p class="old-price">
+                                        @product.OldPrice <span class="currency">@currency</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 align-items-center d-flex js-update-cart-box justify-content-end" data-id="@product.Id" data-name="@product.Name">
+                                <div class="order-amount btn js-up-down-btn">
+                                    <input type="number" class="amount" name="amount" min="1"/>
+                                    <div class="btn-vertical">
+                                        <button class="btn-up">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                        <button class="btn-down">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <button class="btn btn-secondary js-add-to-cart-btn"> <i class="fa fa-plus mr-2"></i> Add to cart</button>
                             </div>
                         </div>
-                        <button class="btn btn-secondary ml-4 js-add-to-cart-btn"> <i class="fa fa-plus mr-2"></i> Add to cart</button>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -111,7 +114,7 @@
                     @Html.Raw(product.VerboseDescription)
                 </div>
                 <div class="tab-pane fade show active" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
-                    <vc:customer-review product-id="@product.Id" />
+                    <vc:customer-review product-id="@product.Id"/>
                 </div>
                 <div class="tab-pane fade" id="nav-questions" role="tabpanel" aria-labelledby="nav-questions-tab">There is no question</div>
             </div>
