@@ -27,7 +27,6 @@ export default {
   },
   computed: {
     cartItems() {
-      console.log('heee')
       return this.$store.getters.getCartItems || []
     },
   },

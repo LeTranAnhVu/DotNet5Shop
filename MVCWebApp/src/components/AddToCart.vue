@@ -1,5 +1,5 @@
 <template>
-  <div class="col-sm-6 align-items-center d-flex js-update-cart-box justify-content-end">
+  <div>
     <div v-if="currentItem"
          class="order-amount btn js-up-down-btn"
     >

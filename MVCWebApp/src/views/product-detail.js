@@ -13,12 +13,13 @@ export function run() {
 
 class CartHandler {
   $updateCartBox = $('.js-update-cart-box')
+  $renderEl = this.$updateCartBox.children('.vue-component')
   run() {
     const productId = parseInt(this.$updateCartBox.attr('data-id'))
     const productName = this.$updateCartBox.attr('data-name')
     this._vm = new Vue({
       template: `<cart productId="${productId}" productName="${productName}"/>`,
-      el: this.$updateCartBox[0],
+      el: this.$renderEl[0],
       store: window.$store,
       components: {
         'cart': AddToCart

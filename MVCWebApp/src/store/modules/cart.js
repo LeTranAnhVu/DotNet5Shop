@@ -28,15 +28,8 @@ module.getters = {
 
 module.mutations = {
   loadCartItem(state) {
-    const key = '__CART__'
-    const items = window.localStorage.getItem(key)
-    try {
-      const cartItems = JSON.parse(items)
-      state.items = cartItems || []
-    } catch (e) {
-      console.error('cannot parse cart item', e)
-    }
-
+    const items = loadCartItemsFromLocalStorage() || []
+    state.items = items.map(item => ({...item, id: parseInt(item.id)}))
   },
   addCartItem(state, item) {
     const exist = state.items.some(_item => _item.id === item.id)
@@ -57,7 +50,6 @@ module.mutations = {
   },
 
   increaseCartItem(state, item) {
-    console.log(item)
     const idx = state.items.findIndex(_item => _item.id === item.id)
     if (idx !== -1) {
       const amount = parseInt(state.items[idx].amount) + 1

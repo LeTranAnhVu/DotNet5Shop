@@ -1,21 +1,21 @@
-import $ from 'jquery'
-import queryString from 'query-string'
-import {stringifyQuery} from '../helpers/queryParam'
+import Vue from 'vue'
+import OrderSummary from '../components/OrderSummary.vue'
 
 export function run() {
-  const orderHandler = new OrderHandler()
+  const orderHandler = new OrderSummaryHandler()
   orderHandler.run()
 }
 
-class OrderHandler {
-  $store = window.$store
+class OrderSummaryHandler {
   async run() {
-    const items = this.$store.getters('getCartItems') || []
-    const ids = items.map(item => item.id)
-    const query = stringifyQuery({products: ids})
-
-    const res = await fetch('/checkout/productDetail' + query)
-    const body = await res.json()
-    const products = body.products || []
+    const $render = $('#order-summary .vue-component')
+    this._vm = new Vue({
+      template: '<order-summary/>',
+      el: $render[0],
+      store: window.$store,
+      components: {
+        'order-summary': OrderSummary
+      }
+    })
   }
 }
