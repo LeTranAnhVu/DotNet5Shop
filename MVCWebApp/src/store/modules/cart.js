@@ -1,5 +1,3 @@
-import {StoreModule} from '../store'
-
 export function loadCartItemsFromLocalStorage() {
   console.log('Load cart items from localStorage')
   const key = '__CART__'
@@ -16,36 +14,31 @@ export function saveCartItemsFromLocalStorage(items) {
   return window.localStorage.setItem(key, JSON.stringify(items))
 }
 
-const module = new StoreModule()
-
-module.name = 'cart'
+const module = {}
 
 module.state = {
   items: []
 }
 
 module.getters = {
-  getCartItems: (context, payload) => {
-    const state = module.state
+  getCartItems: (state, getters) => {
     return state.items
   }
 }
 
 module.mutations = {
-  loadCartItem(context, item) {
+  loadCartItem(state) {
     const key = '__CART__'
     const items = window.localStorage.getItem(key)
     try {
       const cartItems = JSON.parse(items)
-      module.state.items = cartItems || []
+      state.items = cartItems || []
     } catch (e) {
       console.error('cannot parse cart item', e)
     }
 
   },
-  addCartItem(context, item) {
-    const state = module.state
-
+  addCartItem(state, item) {
     const exist = state.items.some(_item => _item.id === item.id)
     if (!exist) {
       state.items.push({...item, amount: 1})
@@ -53,56 +46,48 @@ module.mutations = {
 
     saveCartItemsFromLocalStorage(state.items)
   },
-  removeCartItem(context, item) {
-    const state = module.state
-
+  removeCartItem(state, item) {
     const idx = state.items.findIndex(_item => _item.id === item.id)
     if (idx !== -1) {
       state.items.splice(idx, 1)
+
     }
 
     saveCartItemsFromLocalStorage(state.items)
   },
 
-  increaseCartItem(context, item) {
-    const state = module.state
-
+  increaseCartItem(state, item) {
+    console.log(item)
     const idx = state.items.findIndex(_item => _item.id === item.id)
     if (idx !== -1) {
       const amount = parseInt(state.items[idx].amount) + 1
       state.items.splice(idx, 1, {...item, amount})
     } else {
-      context.commit('addCartItem', item)
+      state.items.push({...item, amount: 1})
     }
-
     saveCartItemsFromLocalStorage(state.items)
   },
 
-  decreaseCartItem(context, item) {
-    const state = module.state
-
+  decreaseCartItem(state, item) {
     const idx = state.items.findIndex(_item => _item.id === item.id)
     if (idx !== -1) {
       const amount = parseInt(state.items[idx].amount) - 1
       if (amount) {
         state.items.splice(idx, 1, {...item, amount})
       } else {
-        context.commit('removeCartItem', item)
+        state.items.splice(idx, 1)
       }
     }
-
     saveCartItemsFromLocalStorage(state.items)
   },
 
-  updateCartItem(context, item) {
-    const state = module.state
-
+  updateCartItem(state, item) {
     const idx = state.items.findIndex(_item => _item.id === item.id)
     if (item && typeof item.amount !== 'undefined' && idx !== -1) {
       if (item.amount > 0) {
         state.items.splice(idx, 1, item)
       } else {
-        context.commit('removeCartItem', item)
+        state.items.splice(idx, 1)
       }
       saveCartItemsFromLocalStorage(state.items)
     }

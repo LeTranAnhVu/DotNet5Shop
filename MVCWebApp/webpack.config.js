@@ -1,12 +1,17 @@
-const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const {VueLoaderPlugin} = require('vue-loader')
 
 const entries = require('./bundleEntries.json')
 module.exports = {
   entry: entries,
   module: {
     rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
@@ -26,18 +31,26 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
           },
           // Translates CSS into CommonJS
-          "css-loader",
+          'css-loader',
           // Compiles Sass to CSS
-          "sass-loader",
+          'sass-loader',
         ],
       },
     ]
   },
-  plugins: [new MiniCssExtractPlugin({
-    filename: '[name]/[name].min.css',
-  })],
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    }
+  },
+  plugins: [
+    new VueLoaderPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name]/[name].min.css',
+    })],
   externals: {
     jquery: 'jQuery',
+    vue: 'Vue'
   },
   optimization: {
     minimize: true,
@@ -54,4 +67,4 @@ module.exports = {
     clean: true,
   },
   mode: 'development'
-};
+}

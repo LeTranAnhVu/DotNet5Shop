@@ -17,6 +17,5 @@ class OrderHandler {
     const res = await fetch('/checkout/productDetail' + query)
     const body = await res.json()
     const products = body.products || []
-    
   }
 }
