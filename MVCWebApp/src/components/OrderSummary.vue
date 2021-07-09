@@ -32,7 +32,7 @@
             <input type="text" class="form-control" v-model="couponCode" placeholder="Apply coupon code"
                    aria-label="Apply coupon code">
             <div class="input-group-append">
-              <button @click="checkCoupon" class="btn btn-outline-secondary" type="button">Check Coupon</button>
+              <button :disabled="!couponCode" @click="checkCoupon" class="btn btn-outline-secondary"  type="button">Check Coupon</button>
             </div>
           </div>
           <small v-if="couponCheckMessage">{{ couponCheckMessage }}
@@ -82,6 +82,7 @@ export default {
   },
 
   props: {},
+
   computed: {
     cartItems() {
       return this.$store.getters.getCartItems || []
@@ -153,11 +154,17 @@ export default {
         } else {
           this.isValidCoupon = true
           this.couponCheckMessage = 'Coupon is applied'
+          this.$store.commit('updateCouponCode', code)
         }
         console.log(this.isValidCoupon)
       },
       deep: true
     },
+  },
+
+  mounted() {
+    const {couponCode} = this.$store.getters.getCheckoutForm
+    this.couponCode = couponCode
   },
 
   methods: {
@@ -171,7 +178,7 @@ export default {
       }
       const query = stringifyQuery({products: ids})
 
-      const res = await fetch('/checkout/product-detail' + query)
+      const res = await fetch('/api/checkout/product-detail' + query)
       const body = await res.json()
       return body.products || []
     },
@@ -179,7 +186,7 @@ export default {
     async checkCoupon() {
       console.log('this.couponCode', this.couponCode)
       const payload = {code: this.couponCode}
-      const res = await fetch('/checkout/check-coupon', {
+      const res = await fetch('/api/checkout/check-coupon', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, text/plain, */*',

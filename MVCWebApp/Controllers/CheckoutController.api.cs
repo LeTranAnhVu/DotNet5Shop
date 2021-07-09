@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +7,7 @@ using MVCWebApp.Services;
 
 namespace MVCWebApp.Controllers
 {
+    [Route("/api/checkout")]
     [ApiController]
     public class CheckoutApiController : ControllerBase
     {
@@ -18,14 +18,25 @@ namespace MVCWebApp.Controllers
             _productService = productService;
         }
 
-        [HttpGet("/checkout/product-detail")]
+        [HttpGet("product-detail")]
         public async Task<object> Order([FromQuery(Name = "products[]")] List<int> productIds)
         {
             var products = await Task.WhenAll(productIds.Select(id => _productService.GetProduct(id)));
             return Ok(new {products});
         }
 
-        [HttpPost("/checkout/check-coupon")]
+        [HttpPost]
+        public async Task<object> CreateOrder(CheckoutFormDto dto)
+        {
+            if (ModelState.IsValid)
+            {
+                return Ok(new {message = "Your order is waiting for processing"});
+            }
+
+            return BadRequest();
+        }
+
+        [HttpPost("check-coupon")]
         public async Task<object> Order(CouponDto dto)
         {
             var discountPercent = 0;
