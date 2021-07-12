@@ -1,10 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# 
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCWebApp", "MVCWebApp\MVCWebApp.csproj", "{2B78B431-097E-436A-BA9C-030DB25BA062}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{CD23A028-96C0-4EC2-9CC4-C7F9097D15EE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIWebApp.Management", "APIWebApp.Management\APIWebApp.Management.csproj", "{1B2C5D22-6806-4FB9-A8FF-4E9AE5F76956}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Product", "Service.Product\Service.Product.csproj", "{9A4E70AD-4055-4ABC-85E1-29F5736E955A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +27,9 @@ Global
 		{1B2C5D22-6806-4FB9-A8FF-4E9AE5F76956}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B2C5D22-6806-4FB9-A8FF-4E9AE5F76956}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B2C5D22-6806-4FB9-A8FF-4E9AE5F76956}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A4E70AD-4055-4ABC-85E1-29F5736E955A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A4E70AD-4055-4ABC-85E1-29F5736E955A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A4E70AD-4055-4ABC-85E1-29F5736E955A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A4E70AD-4055-4ABC-85E1-29F5736E955A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
