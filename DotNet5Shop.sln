@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIWebApp.Management", "API
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Product", "Service.Product\Service.Product.csproj", "{9A4E70AD-4055-4ABC-85E1-29F5736E955A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIGateway", "APIGateway\APIGateway.csproj", "{91A79DD5-F8D2-483A-89BD-E40AD00E237F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,5 +33,9 @@ Global
 		{9A4E70AD-4055-4ABC-85E1-29F5736E955A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A4E70AD-4055-4ABC-85E1-29F5736E955A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A4E70AD-4055-4ABC-85E1-29F5736E955A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91A79DD5-F8D2-483A-89BD-E40AD00E237F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A79DD5-F8D2-483A-89BD-E40AD00E237F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91A79DD5-F8D2-483A-89BD-E40AD00E237F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91A79DD5-F8D2-483A-89BD-E40AD00E237F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
